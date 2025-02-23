@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm to Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Roboto', sans-serif;
+          background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        .container {
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+          max-width: 80%;
+          margin: 50px auto;
+        }
+        h1, p, .button, .nav-link {
+          font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+          color: white;
+          font-size: 3.5rem;
+          margin-bottom: 2rem;
+          text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+        }
+        p {
+          color: white;
+          font-size: 1.2rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .button-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .button {
+          padding: 15px 0;
+          width: 200px;
+          background-color: #2ecc71;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+          background-color: #27ae60;
+          transform: translateY(-2px);
+          box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+          width: 180px;
+          height: 60px;
+          cursor: pointer;
+          background: transparent;
+          border: 1px solid #91C9FF;
+          outline: none;
+          transition: 1s ease-in-out;
+          position: relative;
+        }
+        svg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          fill: none;
+          stroke: #fff;
+          stroke-dasharray: 150 480;
+          stroke-dashoffset: 150;
+          transition: 1s ease-in-out;
+        }
+        .btn:hover {
+          background: #27ae60
+        }
+        .btn:hover svg {
+          stroke-dashoffset: -480;
+        }
+        .btn span {
+          color: white;
+          font-size: 18px;
+          font-weight: 100;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      
+        .nav-container {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+        }
+      
+        .nav-link {
+          color: black;
+        }
+      </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Farm to Home</h1>
+    <p>Farm to Home connects farmers directly with customers, offering fresh, locally grown vegetables for sale. Our platform enables farmers to sell their produce directly, ensuring fair prices and quality. Customers can browse and buy vegetables conveniently from local farms. Additionally, customers have the option to sell their own products, fostering a community-driven marketplace. Join us in supporting sustainable farming and enjoying farm-fresh produce delivered straight to your door.</p>
+    <div class="button-container">
+      <div class="button-wrapper">
+          <a href="{% url 'sell' %}">
+              <button class="btn button">
+                  <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                      <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                      <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                  </svg>
+                  <span>Sell</span>
+              </button>
+          </a>
+      </div>
+  </div>
+  
+        <br>
+    
+        <div class="button-wrapper">
+            <a href="{% url 'order_login' %}">
+                <button class="btn button">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Orders</span>
+                </button>
+            </a>
+        </div>
+    
+        <br>
+    
+        <div class="button-wrapper">
+          <a href="{% url 'product-list' %}">
+              <button class="btn button">
+                  <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                      <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                      <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                  </svg>
+                  <span>Buy</span>
+              </button>
+          </a>
+      </div>
+      
+    </div>
+</body>
+</html>

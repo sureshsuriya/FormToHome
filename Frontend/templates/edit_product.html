@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.alphacoders.com/111/1114020.jpg');
+            background-size: cover;
+            background-position: center;
+            height: vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="url"],
+        input[type="tel"],
+        input[type="file"],
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Edit Product</h2>
+    <form action="{% url 'edit_product' product.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" name="product_name" value="{{ product.product_name }}" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="{{ product.price }}" required placeholder="Enter the price">
+
+        <label for="contact">Contact:</label>
+        <input type="tel" id="contact" name="contact" value="{{ product.contact }}" placeholder="Enter your contact number">
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ product.description }}" placeholder="Enter a brief description">
+
+        <label for="location">Location:</label>
+        <input type="url" id="location" name="location" value="{{ product.location }}" placeholder="Enter URL" required>
+
+        <label for="product-image">Product Image:</label>
+        <input type="file" id="product-image" name="product_image" accept="image/*">
+
+        <label for="available-kg">Available kg:</label>
+        <input type="number" id="available-kg" name="available_kg" value="{{ product.available_kg }}" required placeholder="Enter available kg">
+
+        <br>
+        <input type="submit" value="Update">
+        <input type="button" value="Back" onclick="history.back()">
+    </form>
+</div>
+
+</body>
+</html>
